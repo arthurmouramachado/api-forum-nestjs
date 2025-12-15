@@ -23,7 +23,7 @@ export class QuestionsController {
   @UseGuards(AuthGuard)
   create(@Body() createQuestionDto: CreateQuestionDto, @Request() req: any) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return this.questionsService.create(createQuestionDto, req.userId);
+    return this.questionsService.create(createQuestionDto, req.sub);
   }
 
   @Get()
