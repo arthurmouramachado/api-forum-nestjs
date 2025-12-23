@@ -21,77 +21,184 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# API Fórum – NestJS
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+API REST para um sistema de fórum de perguntas e respostas, onde usuários podem criar perguntas e responder outras perguntas.
 
-## Project setup
+---
+
+## 🚀 Tecnologias utilizadas
+
+- Node.js
+- NestJS
+- TypeScript
+- Prisma ORM
+- SQLite
+
+---
+
+## 📌 Funcionalidades
+
+- Cadastro de usuários
+- Login de usuários
+- Autenticação
+- Criação de perguntas
+- Listagem de perguntas
+- Atualização de perguntas
+- Exclusão de perguntas
+- Criação de respostas
+- Listagem de respostas
+- Atualização de respostas
+- Exclusão de respostas
+
+---
+
+## 🗂️ Estrutura do projeto
+
+```text
+prisma/
+ ├── schema.prisma        # Schema do banco de dados
+ └── migrations/          # Migrations do banco
+
+src/
+ ├── answers/             # Módulo de respostas
+ │   ├── dto/             # DTOs de respostas
+ │   ├── entities/        # Entidades de respostas
+ │   ├── answers.controller.ts
+ │   ├── answers.service.ts
+ │   └── answers.module.ts
+ │
+ ├── questions/           # Módulo de perguntas
+ │   ├── dto/
+ │   ├── entities/
+ │   ├── questions.controller.ts
+ │   ├── questions.service.ts
+ │   └── questions.module.ts
+ │
+ ├── user/                # Módulo de usuários
+ ├── auth/                # Autenticação
+ ├── database/            # Configuração do Prisma
+ ├── validationSchemas/   # Schemas de validação
+ │
+ ├── app.module.ts        # Módulo principal da aplicação
+ └── main.ts              # Bootstrap da aplicação
+
+````
+
+---
+
+## Como rodar o projeto
 
 ```bash
 $ npm install
 ```
 
-## Compile and run the project
+## ⚙️ Compilar e executar o projeto
 
 ```bash
-# development
-$ npm run start
+# modo de desenvolvimento
+npm run start
 
-# watch mode
-$ npm run start:dev
+# modo de desenvolvimento com hot reload
+npm run start:dev
 
-# production mode
-$ npm run start:prod
+# modo de produção
+npm run start:prod
+
 ```
+## Como Rodar Testes
+```bash
+# testes unitários
+npm run test
 
-## Run tests
+# testes end-to-end (e2e)
+npm run test:e2e
+
+# cobertura de testes
+npm run test:cov
+
+```
+----
+
+## 🔗 Rotas da API
 
 ```bash
-# unit tests
-$ npm run test
+### 👤 Usuários
 
-# e2e tests
-$ npm run test:e2e
+- `POST /users`  
+  ➜ Criação de usuário
 
-# test coverage
-$ npm run test:cov
+- `PUT /users/:id`  
+  ➜ Atualização de usuário
+
+- `DELETE /users/:id`  
+  ➜ Exclusão de usuário
+
+---
+
+### 🔐 Autenticação
+
+- `POST /auth/login`  
+  ➜ Login do usuário
+
+---
+
+### ❓ Perguntas
+
+- `POST /questions`  
+  ➜ Criar pergunta
+
+- `GET /questions`  
+  ➜ Listar perguntas
+
+- `GET /questions/:id`  
+  ➜ Buscar pergunta por ID
+
+- `PUT /questions/:id`  
+  ➜ Atualizar pergunta
+
+- `DELETE /questions/:id`  
+  ➜ Deletar pergunta
+
+---
+
+### 💬 Respostas
+
+- `POST /answers`  
+  ➜ Criar resposta
+
+- `GET /answers/:questionId`  
+  ➜ Listar respostas de uma pergunta
+
+- `PUT /answers/:id`  
+  ➜ Atualizar resposta
+
+- `DELETE /answers/:id`  
+  ➜ Deletar resposta
 ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## 🚧 Próximos passos
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- Criar frontend com ReactJS
+- Deploy da API
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+---
 
-## Resources
+## 👨‍💻 Autor
 
-Check out a few resources that may come in handy when working with NestJS:
+Arthur Moura  
+🔗 LinkedIn: www.linkedin.com/in/arthur-moura-7074a3263
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+---
 
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
 ## License
 
